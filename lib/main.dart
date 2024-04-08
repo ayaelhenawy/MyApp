@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Login.dart';
+import 'package:myproject/src/OTPValid.dart';
+import 'package:myproject/src/ResetPssword.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
         home: const LoginScreen(),
+         // home: const OTPValid(),
+     // home: const ForgetPassword(),
+     // home : const ResetPassword(),
      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

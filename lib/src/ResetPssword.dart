@@ -1,71 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:myproject/src/Forgetpassword.dart';
-import 'package:myproject/src/Sign%20Up.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import 'OTPValid.dart';
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 70,
+        decoration:const BoxDecoration(
+          color: Colors.white,
         ),
-        width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
+        child: Center(
           child: Column(
-            children: <Widget>[
-    // this logo
-              Image.asset('assets/images/logo.png',
-              width: 150,
-              height:150,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/reset.png',
+                width: 150,
+                height:100,
               ),
-            const  SizedBox(height: 20),
-              const Text('Welcome to my app!',
+             const Text(
+                'Reset your password',
                 style: TextStyle(
+                  color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 70),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
-                  ),
+             const SizedBox(height: 20),
+            const  Text(
+                'We have sent a four digit code on your phone/email',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
                 ),
               ),
-             const SizedBox(height: 30),
+             const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: 'New Password ',
                   prefixIcon: const Icon(Icons.password_outlined),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -90,52 +69,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 50),
-              MaterialButton(
-                elevation: 5.0,
-                  color: Colors.blue,
-                  padding:const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
-                  shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide.none,
-                  ),
-                  onPressed: () {},
-                  child:const Text('Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
+              const SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Confirm New Password ',
+                  prefixIcon: const Icon(Icons.password_outlined),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(
+                      color: Colors.blue,
+                      width: 1.0,
                     ),
-                  )),
-            const SizedBox(height: 20),
-             GestureDetector(
-               onTap: () {
-                 Navigator.of(context).push(MaterialPageRoute(builder:(context)
-                 {
-                   return const ForgetPassword();
-
-                 }));
-               },
-                child: const Text('Forget Password?',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                )),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(
+                      color: Colors.blue,
+                      width: 1.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(
+                      color: Colors.blue,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
               ),
-          const SizedBox(height: 20),
-          GestureDetector(
-            onTap: (){
+              const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder:(context)
               {
-                return const SignUp();
+                return const OTPValid();
 
               }));
             },
-            child: const Text('Sign Up',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                )),
+            child: Text('Confirm'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blue,
+              minimumSize: Size.fromHeight(50),
+            ),
           ),
             ],
           ),
