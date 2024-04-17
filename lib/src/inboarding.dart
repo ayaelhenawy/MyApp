@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Login.dart';
-import 'package:myproject/src/Sign%20Up.dart';
+import 'package:myproject/src/Sign Up.dart';
 
 class Inboard extends StatefulWidget {
   const Inboard({Key? key}) : super(key: key);
@@ -41,17 +41,7 @@ class _InboardScreenState extends State<Inboard> {
             title: 'Gaming',
             description: 'Gaming with dumbbells lablaaa\nlablaaatany this app',
           ),
-          _buildPage(
-            image: '',
-            title: '',
-            description: '',
-          ),
         ],
-        onPageChanged: (index) {
-          if (index == 3) {
-            _navigateToLoginPage();
-          }
-        },
       ),
     );
   }
@@ -84,11 +74,11 @@ class _InboardScreenState extends State<Inboard> {
         const SizedBox(
           height: 30,
         ),
-        InkWell(
-          onTap: () {
-            _pageController.nextPage(
-                duration: const Duration(milliseconds: 700),
-                curve: Curves.easeIn);
+        MaterialButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return const LoginScreen();
+            }));
           },
           child: Container(
             width: 115,
@@ -104,7 +94,7 @@ class _InboardScreenState extends State<Inboard> {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
