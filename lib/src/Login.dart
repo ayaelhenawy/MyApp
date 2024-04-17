@@ -3,13 +3,37 @@ import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Sign%20Up.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? _emailErrorText;
+  String? _passwordErrorText;
+
+  void _validateFields() {
+    setState(() {
+      _emailErrorText =
+          _emailController.text.isEmpty ? 'Please enter your email' : null;
+
+      _passwordErrorText = _passwordController.text.isEmpty
+          ? 'Please enter your password'
+          : _passwordController.text.length < 8
+              ? 'Password must be at least 8 characters'
+              : null;
+    });
+
+    if (_emailErrorText == null && _passwordErrorText == null) {
+      // Both fields are valid, proceed with login
+      // You can add your login logic here
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +46,15 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-    // this logo
-              Image.asset('assets/images/logo.png',
-              width: 150,
-              height:150,
+              // Logo
+              Image.asset(
+                'assets/images/logo.png',
+                width: 150,
+                height: 150,
               ),
-            const  SizedBox(height: 20),
-              const Text('Welcome to my app!',
+              const SizedBox(height: 20),
+              const Text(
+                'Welcome to my app!',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -36,107 +62,88 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 70),
               TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   hintText: 'Email',
+                  errorText: _emailErrorText,
                   prefixIcon: const Icon(Icons.email),
-                  enabledBorder: OutlineInputBorder(
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.0),
                   ),
                 ),
               ),
-             const SizedBox(height: 30),
+              const SizedBox(height: 30),
               TextField(
+                controller: _passwordController,
+                obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Password',
+                  errorText: _passwordErrorText,
                   prefixIcon: const Icon(Icons.password_outlined),
-                  enabledBorder: OutlineInputBorder(
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 1.0,
-                    ),
+                    borderSide: BorderSide(color: Colors.blue, width: 1.0),
                   ),
                 ),
               ),
               const SizedBox(height: 50),
               MaterialButton(
                 elevation: 5.0,
-                  color: Colors.blue,
-                  padding:const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
-                  shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide.none,
+                color: Colors.blue,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                onPressed: _validateFields,
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
                   ),
-                  onPressed: () {},
-                  child:const Text('Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            const SizedBox(height: 20),
-             GestureDetector(
-               onTap: () {
-                 Navigator.of(context).push(MaterialPageRoute(builder:(context)
-                 {
-                   return const ForgetPassword();
-
-                 }));
-               },
-                child: const Text('Forget Password?',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                )),
+                ),
               ),
-          const SizedBox(height: 20),
-          GestureDetector(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder:(context)
-              {
-                return const SignUp();
-
-              }));
-            },
-            child: const Text('Sign Up',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                )),
-          ),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const ForgetPassword();
+                  }));
+                },
+                child: const Text(
+                  'Forget Password?',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const SignUp();
+                  }));
+                },
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
