@@ -3,26 +3,22 @@ import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Login.dart';
 import 'package:myproject/src/OTPValid.dart';
 import 'package:myproject/src/ResetPssword.dart';
-import 'package:myproject/src/inboarding.dart';
+import 'package:myproject/src/auth/onboarding/view/page/onboarding_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  bool onBording = sharedPreferences.getBool('onboarding') ?? false;
+
+  MaterialApp materialApp = MaterialApp(
+     home: onBording ? const LoginScreen() : const OnBoardingPage(),
+
+  );
+
+  runApp(materialApp);
+
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  // This widget is the root of your application.
-  //void first() async{
-  //SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-
-  //}
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const Inboard(),
-    );
-  }
-}

@@ -21,7 +21,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/reset.png',
+              Image.asset('assets/logos/reset.png',
                 width: 150,
                 height:100,
               ),

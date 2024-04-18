@@ -19,7 +19,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/forget.png',
+            Image.asset('assets/logos/forget.png',
               width: 150,
               height:80,
             ),
