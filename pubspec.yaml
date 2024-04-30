@@ -76,8 +76,8 @@ flutter:
     -  #   - images/a_dot_ham.jpeg
 
 flutter_native_splash:
-  color: "#42a5f5"
-  image: 'assets/images/splash.png'
+  color: "#008000"
+  image: 'assets/images/splash2.png'
   # flutter_native_splash:
 
 flutter_launcher_icons:
