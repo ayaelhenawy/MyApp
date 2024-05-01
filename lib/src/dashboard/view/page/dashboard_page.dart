@@ -1,0 +1,46 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myproject/src/dashboard/cubit/dashboard_cubit.dart';
+
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // DashboardCubit cont = DashboardCubit();
+    return BlocProvider(
+  create: (context) => DashboardCubit(),
+    child: BlocBuilder<DashboardCubit, DashboardState>(
+  builder: (context, state) {
+    DashboardCubit cont = context.read<DashboardCubit>();
+    return Scaffold(
+      body: PageView(
+        controller: cont.pageController,
+        onPageChanged: cont.onChangeTap,
+        children: const [
+          Text('Product'),
+          Text('Favorite'),
+          Text('Cart'),
+          Text('Profile'),
+
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.green,
+          currentIndex: cont.currentIndex,
+          onTap: cont.onChangeTap,
+          items:const [
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.collections),label:'Ptoduct'),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart),label:'Favorite'),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart),label:'Cart'),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled),label:'Profile'),
+
+
+     ], ),
+    );
+  },
+),
+);
+  }
+}

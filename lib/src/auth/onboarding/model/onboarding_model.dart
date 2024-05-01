@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 
 class OnboardingModel {
   late String image, title, subtitle;

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Sign%20Up.dart';
-import 'dashboard/view/page/login_page.dart';
+
+import 'dashboard/view/page/dashboard_page.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -106,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const  Login();
+                    return const DashboardPage() ;
                   }));
                 },
                 child: const Text(

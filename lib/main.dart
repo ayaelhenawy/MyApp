@@ -6,53 +6,60 @@ import 'package:myproject/src/OTPValid.dart';
 import 'package:myproject/src/ResetPssword.dart';
 import 'package:myproject/src/Sign%20Up.dart';
 import 'package:myproject/src/auth/onboarding/view/page/onboarding_page.dart';
-import 'package:myproject/src/dashboard/view/page/login_page.dart';
+import 'package:myproject/src/dashboard/view/page/dashboard_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  bool onBording = sharedPreferences.getBool('onboarding') ?? false;
-
-  MaterialApp materialApp = MaterialApp(
-    // home: onBording ? const LoginScreen() : const OnBoardingPage(),
-    useInheritedMediaQuery: true,
-    builder: DevicePreview.appBuilder,
-    onGenerateRoute: MyRoutes.onGenerateRoute,
-    onGenerateInitialRoutes: (_) => MyRoutes.initRoutes,
+void main()
+{
+  MaterialApp materialApp = const MaterialApp(
+    home: DashboardPage(),
   );
-  runApp(
-    DevicePreview(
-    enabled: false,
-    builder: (context) => materialApp,
-  ),);
+  runApp(materialApp);
 }
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//
+//   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+//   bool onBording = sharedPreferences.getBool('onboarding') ?? false;
+//
+//   MaterialApp materialApp = MaterialApp(
+//     // home: onBording ? const LoginScreen() : const OnBoardingPage(),
+//     useInheritedMediaQuery: true,
+//     builder: DevicePreview.appBuilder,
+//     onGenerateRoute: MyRoutes.onGenerateRoute,
+//     onGenerateInitialRoutes: (_) => MyRoutes.initRoutes,
+//   );
+//   runApp(
+//     DevicePreview(
+//     enabled: false,
+//     builder: (context) => materialApp,
+//   ),);
+// }
 
-class MyRoutes {
-  static List<Route> initRoutes = [
-    MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => const OnBoardingPage()),
-    MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => const SignUp()),
-    MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => const Login()),
-   ];
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case 'login':
-        final List data = settings.arguments as List;
-        return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => const Login());
-      case 'register':
-        return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => const SignUp());
-      default:
-        return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) => const OnBoardingPage());
-    }
-  }
-}
+// class MyRoutes {
+//   static List<Route> initRoutes = [
+//     MaterialPageRoute<dynamic>(
+//         builder: (BuildContext context) => const OnBoardingPage()),
+//     MaterialPageRoute<dynamic>(
+//         builder: (BuildContext context) => const SignUp()),
+//     MaterialPageRoute<dynamic>(
+//         builder: (BuildContext context) => const DashboardPage()),
+//    ];
+//   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+//     switch (settings.name) {
+//       case 'login':
+//         final List data = settings.arguments as List;
+//         return MaterialPageRoute<dynamic>(
+//             builder: (BuildContext context) => const DashboardPage());
+//       case 'register':
+//         return MaterialPageRoute<dynamic>(
+//             builder: (BuildContext context) => const SignUp());
+//       default:
+//         return MaterialPageRoute<dynamic>(
+//             builder: (BuildContext context) => const OnBoardingPage());
+//     }
+//   }
+// }
 
 // class MyApp extends StatelessWidget{
 //   const MyApp({super.key});
