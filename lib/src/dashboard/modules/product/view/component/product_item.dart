@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
 import 'package:myproject/src/dashboard/modules/product/model/entity_model/product_model.dart';
-import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
+// import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
 
 class ProductItem extends StatelessWidget {
   final ProductModel productModel;
