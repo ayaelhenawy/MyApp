@@ -7,6 +7,7 @@ import 'package:myproject/src/core/routing/myroute.dart';
 void main()
 {
   MaterialApp materialApp =  MaterialApp(
+    debugShowCheckedModeBanner: false,
     onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
     onGenerateRoute: MyRoute.onNavigateByName,
   );
