@@ -30,6 +30,7 @@ class DashboardPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Colors.green,
+          
           currentIndex: cont.currentIndex,
           onTap: cont.onChangeTap,
           items:const [

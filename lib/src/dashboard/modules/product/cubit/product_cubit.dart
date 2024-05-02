@@ -34,4 +34,20 @@ void init() async {
   else {
     emit(ProductStateLoaded());
   }
-}}
+}
+  void addItemToFavorite(int id,int value)
+  {
+    repo.updateFavorite(value, id);
+    init();
+    emit(ProductStateLoaded());
+
+  }
+  void addItemToCart(int id)
+  {
+    repo.updateCart(1, id);
+    emit(ProductStateLoaded());
+
+  }
+
+
+}

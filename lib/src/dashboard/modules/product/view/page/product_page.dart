@@ -21,7 +21,7 @@ class ProductPage extends StatelessWidget {
             const Icon(CupertinoIcons.delete):
             ListView.builder(
               itemBuilder: (_,int index) => ProductItem(
-                  productModel: controller.products[index]
+                  productModel: controller.products[index], controller: controller,
               ),
               itemCount: controller.products.length ,
             ),
