@@ -106,11 +106,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                     return const OTPValid();
                   }));
                 },
-                child: const Text('Confirm'),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  minimumSize: Size.fromHeight(50),
+                  backgroundColor: Colors.blue,
+                  minimumSize: const Size.fromHeight(50),
                 ),
+                child: const Text('Confirm'),
               ),
             ],
           ),

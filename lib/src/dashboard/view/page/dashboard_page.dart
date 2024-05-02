@@ -11,39 +11,45 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // DashboardCubit cont = DashboardCubit();
     return BlocProvider(
-  create: (context) => DashboardCubit(),
-    child: BlocBuilder<DashboardCubit, DashboardState>(
-  builder: (context, state) {
-    DashboardCubit cont = context.read<DashboardCubit>();
-    return Scaffold(
-      appBar: AppBar(),
-      body: PageView(
-        controller: cont.pageController,
-        onPageChanged: cont.onChangeTap,
-        children: const [
-          ProductPage(),
-          Text('Favorite'),
-          Text('Cart'),
-          Text('Profile'),
-
-        ],
+      create: (context) => DashboardCubit(),
+      child: BlocBuilder<DashboardCubit, DashboardState>(
+        builder: (context, state) {
+          DashboardCubit cont = context.read<DashboardCubit>();
+          return Scaffold(
+            appBar: AppBar(),
+            body: PageView(
+              controller: cont.pageController,
+              onPageChanged: cont.onChangeTap,
+              children: const [
+                ProductPage(),
+                Text('Favorite'),
+                Text('Cart'),
+                Text('Profile'),
+              ],
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: Colors.green,
+              unselectedItemColor: Colors.grey,
+              currentIndex: cont.currentIndex,
+              onTap: cont.onChangeTap,
+              showUnselectedLabels: true,
+              unselectedLabelStyle:
+                  const TextStyle(fontSize: 15, color: Colors.grey),
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.collections), label: 'Ptoduct'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.heart), label: 'Favorite'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.cart), label: 'Cart'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.profile_circled),
+                    label: 'Profile'),
+              ],
+            ),
+          );
+        },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.green,
-          
-          currentIndex: cont.currentIndex,
-          onTap: cont.onChangeTap,
-          items:const [
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.collections),label:'Ptoduct'),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart),label:'Favorite'),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart),label:'Cart'),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.profile_circled),label:'Profile'),
-
-
-     ], ),
     );
-  },
-),
-);
   }
 }
