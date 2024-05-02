@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:myproject/src/Sign%20Up.dart';
+import 'package:myproject/src/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/onboarding_model.dart';

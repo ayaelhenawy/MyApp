@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myproject/src/dashboard/cubit/dashboard_cubit.dart';
+import 'package:myproject/src/dashboard/modules/product/view/page/product_page.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -15,11 +16,12 @@ class DashboardPage extends StatelessWidget {
   builder: (context, state) {
     DashboardCubit cont = context.read<DashboardCubit>();
     return Scaffold(
+      appBar: AppBar(),
       body: PageView(
         controller: cont.pageController,
         onPageChanged: cont.onChangeTap,
         children: const [
-          Text('Product'),
+          ProductPage(),
           Text('Favorite'),
           Text('Cart'),
           Text('Profile'),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myproject/src/ResetPssword.dart';
+import 'package:myproject/src/resetpassword.dart';
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 

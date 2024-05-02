@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:myproject/src/Forgetpassword.dart';
 import 'package:myproject/src/Login.dart';
 import 'package:myproject/src/OTPValid.dart';
-import 'package:myproject/src/ResetPssword.dart';
-import 'package:myproject/src/Sign%20Up.dart';
 import 'package:myproject/src/auth/onboarding/view/page/onboarding_page.dart';
+import 'package:myproject/src/core/routing/myroute.dart';
 import 'package:myproject/src/dashboard/view/page/dashboard_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main()
 {
-  MaterialApp materialApp = const MaterialApp(
-    home: DashboardPage(),
+  MaterialApp materialApp =  MaterialApp(
+    onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
+    onGenerateRoute: MyRoute.onNavigateByName,
   );
   runApp(materialApp);
 }
@@ -26,8 +26,8 @@ void main()
 //     // home: onBording ? const LoginScreen() : const OnBoardingPage(),
 //     useInheritedMediaQuery: true,
 //     builder: DevicePreview.appBuilder,
-//     onGenerateRoute: MyRoutes.onGenerateRoute,
-//     onGenerateInitialRoutes: (_) => MyRoutes.initRoutes,
+//     onGenerateRoute: MyRoute.onNavigateByName,
+//     onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
 //   );
 //   runApp(
 //     DevicePreview(

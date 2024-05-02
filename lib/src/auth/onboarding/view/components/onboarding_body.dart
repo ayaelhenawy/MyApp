@@ -5,7 +5,7 @@ import '../../controller/onboarding_controller_cubit.dart';
 
 class OnboardingBody extends StatelessWidget {
   OnboardingBody({super.key, required this.controller});
-  OnboardingControllerCubit controller;
+  final OnboardingControllerCubit controller;
   @override
   Widget build(BuildContext context) {
     return Column(
