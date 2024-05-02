@@ -59,29 +59,9 @@ class ProductCubit extends Cubit<ProductState> {
     init();
     emit(ProductStateLoaded());
   }
-<<<<<<< HEAD
-}
-  void addItemToFavorite(int id,int value)
-  {
-    repo.updateFavorite(value, id);
-    init();
-    emit(ProductStateLoaded());
-
-  }
-  void addItemToCart(int id)
-  {
-    repo.updateCart(1, id);
-    emit(ProductStateLoaded());
-
-  }
-
-
-}
-=======
 
   void addItemToCart(int id) {
     repo.updateCart(1, id);
     emit(ProductStateLoaded());
   }
 }
->>>>>>> refs/remotes/origin/master

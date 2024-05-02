@@ -15,18 +15,6 @@ class ProductPage extends StatelessWidget {
         builder: (context, state) {
           final ProductCubit controller = context.read<ProductCubit>();
           return Scaffold(
-<<<<<<< HEAD
-            body: state is ProductStateLoading?
-            const CircularProgressIndicator():
-            state is ProductStateEmpty?
-            const Icon(CupertinoIcons.delete):
-            ListView.builder(
-              itemBuilder: (_,int index) => ProductItem(
-                  productModel: controller.products[index], controller: controller,
-              ),
-              itemCount: controller.products.length ,
-            ),
-=======
             body: state is ProductStateLoading
                 ? const CircularProgressIndicator()
                 : state is ProductStateEmpty
@@ -38,7 +26,6 @@ class ProductPage extends StatelessWidget {
                         ),
                         itemCount: controller.products.length,
                       ),
->>>>>>> refs/remotes/origin/master
           );
         },
       ),
