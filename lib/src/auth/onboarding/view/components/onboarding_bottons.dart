@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../controller/onboarding_controller_cubit.dart';
 
 class OnboardingButtonWidget extends StatelessWidget {
-  OnboardingButtonWidget({super.key, required this.controller});
+  const OnboardingButtonWidget({super.key, required this.controller});
   final OnboardingControllerCubit controller;
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,8 @@ class OnboardingButtonWidget extends StatelessWidget {
       value: controller,
       child: BlocBuilder<OnboardingControllerCubit, OnboardingControllerState>(
         builder: (context, state) {
-          OnboardingControllerCubit controller = context.read<OnboardingControllerCubit>();
+          OnboardingControllerCubit controller =
+              context.read<OnboardingControllerCubit>();
 
           return SizedBox(
             height: 100,
@@ -24,7 +25,9 @@ class OnboardingButtonWidget extends StatelessWidget {
                       controller.onCallSkip(context);
                     },
                     child: const Text("Skip")),
-                TextButton(onPressed: controller.onChangeToNext, child: const Text("next"))
+                TextButton(
+                    onPressed: controller.onChangeToNext,
+                    child: const Text("next"))
               ],
             ),
           );

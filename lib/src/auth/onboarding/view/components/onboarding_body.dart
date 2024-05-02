@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../controller/onboarding_controller_cubit.dart';
 
 class OnboardingBody extends StatelessWidget {
-  OnboardingBody({super.key, required this.controller});
+  const OnboardingBody({super.key, required this.controller});
   final OnboardingControllerCubit controller;
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,11 @@ class OnboardingBody extends StatelessWidget {
         Expanded(
           child: BlocProvider<OnboardingControllerCubit>.value(
             value: controller,
-            child: BlocBuilder<OnboardingControllerCubit, OnboardingControllerState>(
+            child: BlocBuilder<OnboardingControllerCubit,
+                OnboardingControllerState>(
               builder: (context, state) {
-                OnboardingControllerCubit controller = context.read<OnboardingControllerCubit>();
+                OnboardingControllerCubit controller =
+                    context.read<OnboardingControllerCubit>();
 
                 return PageView(
                   controller: controller.pageController,

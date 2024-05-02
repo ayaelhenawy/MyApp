@@ -1,5 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:myproject/src/resetpassword.dart';
+
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
@@ -10,7 +13,6 @@ class ForgetPassword extends StatefulWidget {
 class _ForgetPasswordState extends State<ForgetPassword> {
   get titleText => null;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,42 +21,43 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/logos/forget.png',
+            Image.asset(
+              'assets/logos/forget.png',
               width: 150,
-              height:80,
+              height: 80,
             ),
             const SizedBox(
               height: 100,
             ),
-           const Text('Reset Password',
-               //  style: titleText,
+            const Text(
+              'Reset Password',
+              //  style: titleText,
               style: TextStyle(fontSize: 30),
             ),
-            const  SizedBox(height: 20),
-            const  Text(
+            const SizedBox(height: 20),
+            const Text(
               'Enter your email address to reset your password',
               style: TextStyle(fontSize: 16),
             ),
-        const  SizedBox(height: 20),
-          const  TextField(
+            const SizedBox(height: 20),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
               ),
             ),
-          const  SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder:(context)
-                {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
                   return const ResetPassword();
-
                 }));
               },
-              child:  Text('Reset Password'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                minimumSize:const Size.fromHeight(50),
+                backgroundColor: Colors.blue,
+                minimumSize: const Size.fromHeight(50),
               ),
+              child: const Text('Reset Password'),
             ),
           ],
         ),

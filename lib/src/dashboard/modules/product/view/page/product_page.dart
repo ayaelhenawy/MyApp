@@ -5,7 +5,7 @@ import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart
 import 'package:myproject/src/dashboard/modules/product/view/component/product_item.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+  const ProductPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +15,17 @@ class ProductPage extends StatelessWidget {
         builder: (context, state) {
           final ProductCubit controller = context.read<ProductCubit>();
           return Scaffold(
-            body: state is ProductStateLoading?
-            const CircularProgressIndicator():
-            state is ProductStateEmpty?
-            const Icon(CupertinoIcons.delete):
-            ListView.builder(
-              itemBuilder: (_,int index) => ProductItem(
-                  productModel: controller.products[index]
-              ),
-              itemCount: controller.products.length ,
-            ),
+            body: state is ProductStateLoading
+                ? const CircularProgressIndicator()
+                : state is ProductStateEmpty
+                    ? const Icon(CupertinoIcons.delete)
+                    : ListView.builder(
+                        itemBuilder: (_, int index) => ProductItem(
+                          productModel: controller.products[index],
+                          controller: controller,
+                        ),
+                        itemCount: controller.products.length,
+                      ),
           );
         },
       ),

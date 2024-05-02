@@ -1,9 +1,10 @@
+// ignore_for_file: file_names, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:myproject/src/forgetpassword.dart';
 import 'package:myproject/src/signup.dart';
 
 import 'dashboard/view/page/dashboard_page.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -75,7 +76,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                    borderSide:
+                        const BorderSide(color: Colors.blue, width: 1.0),
                   ),
                 ),
               ),
@@ -92,7 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                    borderSide:
+                        const BorderSide(color: Colors.blue, width: 1.0),
                   ),
                 ),
               ),
@@ -108,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const DashboardPage() ;
+                    return const DashboardPage();
                   }));
                 },
                 child: const Text(
