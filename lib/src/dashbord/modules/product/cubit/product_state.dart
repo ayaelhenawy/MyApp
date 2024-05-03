@@ -1,5 +1,6 @@
 part of 'product_cubit.dart';
 
+@immutable
 sealed class ProductState {}
 
 final class ProductStateLoading extends ProductState {}

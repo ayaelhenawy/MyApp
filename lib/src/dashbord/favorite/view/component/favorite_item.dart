@@ -1,31 +1,20 @@
+import 'dart:developer';
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
-import 'package:myproject/src/dashboard/modules/product/model/entity_model/product_model.dart';
-// import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
+import 'package:myproject/src/dashbord/favorite/cubit/favorite_cubit.dart';
+import 'package:myproject/src/dashbord/modules/product/model/entity_model/product_model.dart';
 
-class ProductItem extends StatelessWidget {
-  final ProductModel productModel;
-  final ProductCubit controller;
-
-  const ProductItem(
+class favoriteItem extends StatelessWidget {
+  const favoriteItem(
       {super.key, required this.productModel, required this.controller});
+
+  final ProductModel productModel;
+  final favoriteCubit controller;
 
   @override
   Widget build(BuildContext context) {
-    // return Card(
-    //   child: ListTile(
-    //     title: Text(productModel.name ?? 'product'),
-    //     subtitle: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         Text('Description: ${productModel.desc}'),
-    //         Text('Quantity: ${productModel.quantity} \$'),
-    //         Text('Available Quantity: ${productModel.availableQuantity}'),
-    //       ],
-    //     ),
-    //   ),
-    // );
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: DecoratedBox(
@@ -41,6 +30,18 @@ class ProductItem extends StatelessWidget {
               //product info
               Row(
                 children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: Image.memory(
+                      productModel.image! ?? Uint8List(5),
+                      height: 100,
+                      width: 100,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -77,7 +78,11 @@ class ProductItem extends StatelessWidget {
                   ),
                 ],
               ),
-              const Divider(thickness: 0.5),
+
+              Divider(
+                thickness: 0.5,
+              ),
+
               // actions
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

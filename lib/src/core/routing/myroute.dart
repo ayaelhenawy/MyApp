@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../dashboard/view/page/dashboard_page.dart';
+import 'package:myproject/src/dashbord/view/page/dashboard_page.dart';
 
 class MyRoute {
   static List<Route<dynamic>> initialRoutes = [

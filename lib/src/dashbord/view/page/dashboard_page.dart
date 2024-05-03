@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myproject/src/dashboard/cubit/dashboard_cubit.dart';
-import 'package:myproject/src/dashboard/modules/product/view/page/product_page.dart';
+import 'package:myproject/src/dashbord/cubit/dashboard_cubit.dart';
+import 'package:myproject/src/dashbord/favorite/view/page/favorite_page.dart';
+import 'package:myproject/src/dashbord/modules/product/view/page/product_page.dart';
+import 'package:myproject/src/dashbord/new_product/view/page/new_product_page.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -16,13 +18,27 @@ class DashboardPage extends StatelessWidget {
         builder: (context, state) {
           DashboardCubit cont = context.read<DashboardCubit>();
           return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    // Navigate to the login page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NewProductPage()),
+                    );
+                  },
+                  icon: const Icon(CupertinoIcons.plus),
+                ),
+              ],
+            ),
             body: PageView(
               controller: cont.pageController,
               onPageChanged: cont.onChangeTap,
               children: const [
                 ProductPage(),
-                Text('Favorite'),
+                favoritePage(),
                 Text('Cart'),
                 Text('Profile'),
               ],
@@ -32,9 +48,6 @@ class DashboardPage extends StatelessWidget {
               unselectedItemColor: Colors.grey,
               currentIndex: cont.currentIndex,
               onTap: cont.onChangeTap,
-              showUnselectedLabels: true,
-              unselectedLabelStyle:
-                  const TextStyle(fontSize: 15, color: Colors.grey),
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.collections), label: 'Ptoduct'),

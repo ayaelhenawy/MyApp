@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myproject/src/dashboard/modules/product/cubit/product_cubit.dart';
-import 'package:myproject/src/dashboard/modules/product/view/component/product_item.dart';
+import 'package:myproject/src/dashbord/modules/product/cubit/product_cubit.dart';
+import 'package:myproject/src/dashbord/modules/product/view/component/product_item.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  const ProductPage({super.key});
 
   @override
   Widget build(BuildContext context) {

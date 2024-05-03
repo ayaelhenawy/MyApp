@@ -5,12 +5,11 @@ import 'package:myproject/src/Login.dart';
 import 'package:myproject/src/OTPValid.dart';
 import 'package:myproject/src/auth/onboarding/view/page/onboarding_page.dart';
 import 'package:myproject/src/core/routing/myroute.dart';
-import 'package:myproject/src/dashboard/view/page/dashboard_page.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main()
-{
-  MaterialApp materialApp =  MaterialApp(
+void main() {
+  MaterialApp materialApp = MaterialApp(
     onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
     onGenerateRoute: MyRoute.onNavigateByName,
   );
